@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  column_name: MyString
+  operation: MyString
+  upload: one
+
+two:
+  column_name: MyString
+  operation: MyString
+  upload: two
