@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   # Changes to the importmap will invalidate the etag for HTML responses
   stale_when_importmap_changes
   def current_user
-    @user = User.first 
+    @user = User.first
   end
 end
+
+

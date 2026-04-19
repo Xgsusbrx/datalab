@@ -1,8 +1,20 @@
 
 
 <%= @saludo  %>
-<%= @user.email %>
-<%= link_to('nuevo', new_upload_path ) %>
+<p>Aqui van todos los usuarios registrados </p>
+
+<% @users.each do |user| %>
+    <div>
+   <p> <%= user.email %></p>
+    </div>
+
+    <% end %>
+
+
+
+
+
+
 
 
 
