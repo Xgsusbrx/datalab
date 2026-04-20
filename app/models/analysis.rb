@@ -6,10 +6,12 @@ class Analysis < ApplicationRecord
    
     def process_csv
         require 'csv'
-        return "no hay archivo" unless csv.has_one_attached?
+        return "no hay archivo" unless csv.attached?
+
+        file = csv.download.force_encoding("UTF-8")
 
         file = csv.download
-        data = CSV.parce(file, headers: true)
+        data = CSV.parse(file, headers: true)
 
         values = data.map { |row |row[column_name].to_f}
 

@@ -2,7 +2,7 @@ class AnalysesController < ApplicationController
 
     def index
         @saludo = "Hola desde el index controller "
-        
+        @analysis = Analysis.new
         @user = current_user
 
         @users = User.all
@@ -34,11 +34,11 @@ class AnalysesController < ApplicationController
     private
 
     def analysis_params
-    params.require(analysis: [
+    params.require(:analysis).permit(
         :column_name,
         :operation,
         :csv
-    ])    
+    )
     end 
 
 end
