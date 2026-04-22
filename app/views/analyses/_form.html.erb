@@ -1,9 +1,13 @@
-<%= form_with model: @analysis, html: {multipart: true } do |form| %> 
-<%= form.label "que columna quieres trabajar" %>
-<%= form.text_field :column_name %> 
-<%= form.label "operacion" %>
-<%= form.text_field :operation %> 
-<%= form.file_field :csv %>
-<%= form.submit "Procesar el csv" %>
+<%= form_with model: @analysis, html: { multipart: true } do |form| %>
+
+  <%= form.label :column_name, "¿Qué columna querés trabajar?" %>
+  <%= form.text_field :column_name %>
+
+  <%= form.label :operacion, "Seleccioná una operación:" %>
+  <%= form.select :operation, ["sum", "average", "max", "min"] %>
+
+  <%= form.file_field :csv %>
+
+  <%= form.submit "Procesar el CSV" %>
 
 <% end %>
