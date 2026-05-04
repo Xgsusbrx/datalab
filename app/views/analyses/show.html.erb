@@ -1,13 +1,14 @@
 <h2>el resultado de tu operacion es: </h2>
 
 <p>
-  <%= @analysis.operation.capitalize %>:
- 
-</p>
+  <%= @analysis.operation.capitalize %>: <%= @result %>
+ </p>
+
+ <p>La columna que se trabajo fue: <%=@analysis.column_name %> 
 
 
 
-<p> Resultado: <%= @result %> </p>
+
 
 <%= link_to 'Menu principal', analyses_path %>
 

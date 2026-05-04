@@ -18,22 +18,17 @@ class AnalysesController < ApplicationController
         @analysis = Analysis.new
     end
 
-    def create# se encarga de procesar el formulario
+    def create# se encarga de procesar el formulario@
         @analysis = Analysis.new(analysis_params)
         if @analysis.save  
-            resultado = @analysis.process_csv    
+            resultado = CsvProcessor.new(@analysis).call    
             @analysis.update(Result: resultado)         
 
             redirect_to @analysis
         else 
             render :new, status: :unprocessable_entity
         end 
-
-        
-        
-       
-              
-          
+         
               
     end    
 
