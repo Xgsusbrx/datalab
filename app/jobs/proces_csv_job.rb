@@ -2,7 +2,7 @@ class ProcesCsvJob < ApplicationJob
   queue_as :default
 
   def perform(analysis_id)
-    analysis = analysis.find(analysis_id)
+    analysis = Analysis.find(analysis_id)
 
     return unless analysis.csv.attached?
 
