@@ -1,14 +1,16 @@
 <h2>el resultado de tu operacion es: </h2>
 
 
-<% if @analysis.Result.present? %>
-  <p>Resultado: <%= @analysis.Result %></p>
-<% else %>
-  <p id="status">⏳ Procesando...</p>
+<% if @analysis.status == "failed" %>
+  <p> Error: <%= @analysis.error_message %></p>
 
-  <script>
-    setTimeout(() => location.reload(), 3000); // recarga cada 3 segundos
-  </script>
+<% elsif @analysis.status == "completed" %>  
+
+  <p>Resultado: <%= @analysis.Result %></p>
+
+<% else %>
+  <p> Procesando . . . </p>
+
 <% end %>
 
 <p>
